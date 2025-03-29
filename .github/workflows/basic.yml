@@ -13,10 +13,10 @@ jobs:
           - 8081:8081
         env:
           PDNS_AUTH_API_KEY: "apikey"
-    # container: 
-    #   image: node:22
-    #   env:
-    #     NODE_ENV: development
+    container: 
+      image: node:22
+      env:
+        NODE_ENV: development
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
