@@ -11,12 +11,12 @@ jobs:
         image: powerdns/pdns-auth-49:latest
         ports:
           - 8081:8081
-        env:
-          PDNS_AUTH_API_KEY: "apikey"
-        # volumes:
-        #   - ./pdns.conf:/etc/powerdns/pdns.conf
+        # env:
+        #   PDNS_AUTH_API_KEY: "apikey"
+        volumes:
+          - ${{ github.workspace }}/pdns.conf:/etc/powerdns/pdns.conf
         options: >-
-          --health-cmd curl http://127.0.0.1:8081/api/v1
+          --health-cmd "pdnsutil list-all-zones || exit 1"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
