@@ -1,6 +1,10 @@
 name: Basic workflow
 on: 
   push:
+    branches:
+      - '**'  # Run on all branches
+    paths-ignore:
+      - '*.md'  # Ignore markdown changes to avoid unnecessary runs
 
 jobs:
   test:
