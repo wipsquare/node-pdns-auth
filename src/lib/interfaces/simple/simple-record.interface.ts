@@ -6,7 +6,7 @@ export interface IPowerDNSSimpleRecordWrite extends Omit<IPowerDNSZoneRRSet, 'co
     content: string|string[];
 
     /** Comments of the record */
-    comment?: string|string[];
+    // comment?: string|string[];
 
 }
 
@@ -16,6 +16,6 @@ export interface IPowerDNSSimpleRecord extends Pick<IPowerDNSZoneRRSet, 'name'|'
     content: string[];
 
     /** Comment of the record */
-    comment?: string[];
+    // comment?: string[];
 
 }

@@ -16,13 +16,11 @@ describe(`Setup domain "${domainName}" with basic information`, () => {
                {
                    type: 'A',
                    content: '127.0.0.1',
-                   comment: 'Entry point'
                },
                {
                    type: 'A',
                    name: 'www',
                    content: '127.0.0.1',
-                   comment: 'www-Subdomain'
                }
            ]
        });
