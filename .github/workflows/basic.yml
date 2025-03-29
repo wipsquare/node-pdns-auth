@@ -6,10 +6,17 @@ jobs:
   test:
     name: "Jest test"
     runs-on: ubuntu-latest
-    container: 
-      image: node:22
-      env:
-        NODE_ENV: development
+    services:
+      pdns-auth:
+        image: powerdns/pdns-auth-49:latest
+        ports:
+          - 8081:8081
+        env:
+          PDNS_AUTH_API_KEY: "apikey"
+    # container: 
+    #   image: node:22
+    #   env:
+    #     NODE_ENV: development
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
