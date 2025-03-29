@@ -13,10 +13,10 @@ jobs:
           - 8081:8081
         env:
           PDNS_AUTH_API_KEY: "apikey"
-        volumes:
-          - ./pdns.conf:/etc/powerdns/pdns.conf
+        # volumes:
+        #   - ./pdns.conf:/etc/powerdns/pdns.conf
         options: >-
-          --health-cmd curl 'http://127.0.0.1:8081/api/v1'
+          --health-cmd curl http://127.0.0.1:8081/api/v1
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
