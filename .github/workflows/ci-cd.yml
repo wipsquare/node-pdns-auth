@@ -1,10 +1,8 @@
-name: Release
+name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main
-      - beta
-      - alpha
+      - '**'
   workflow_dispatch:
     inputs:
       branch:
@@ -18,8 +16,45 @@ on:
           - alpha
 
 jobs:
+  test:
+    name: "Run Tests"
+    runs-on: ubuntu-latest
+    services:
+      pdns-auth:
+        image: powerdns/pdns-auth-49:latest
+        ports:
+          - 8081:8081
+        env:
+          PDNS_AUTH_API_KEY: "apikey"
+        options: >-
+          --health-cmd "pdnsutil list-all-zones || exit 1"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    container: 
+      image: node:22
+      env:
+        NODE_ENV: development
+        PDNS_HOST: pdns-auth
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install deps
+        run: npm ci
+      - name: Run tests
+        run: npm run test
+
   release:
-    name: Release
+    name: "Release Package"
+    needs: test
+    if: |
+      success() && 
+      (github.ref == 'refs/heads/main' || 
+       github.ref == 'refs/heads/beta' || 
+       github.ref == 'refs/heads/alpha' || 
+       github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     permissions:
       contents: write

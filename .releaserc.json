@@ -10,7 +10,10 @@
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
     ["@semantic-release/npm", {
-      "pkgRoot": "dist"
+      "pkgRoot": "dist",
+      "npmPublish": true,
+      "tarballDir": "dist",
+      "access": "public"
     }],
     "@semantic-release/github",
     ["@semantic-release/git", {

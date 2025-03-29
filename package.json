@@ -15,6 +15,9 @@
     "type": "git",
     "url": "https://github.com/wipsquare/node-pdns-auth.git"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "powerdns",
     "api",
