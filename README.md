@@ -7,7 +7,9 @@
 npm i @wipsquare/powerdns
 ```
 
-## Important note
+## Important notes
+This is still in tests!
+
 My focus is towards the instances with LBDM backed. Some limitations might appear because of that, for example:
 
 Not supported:
