@@ -26,12 +26,12 @@ export function mergeSimpleRecords(records: IPowerDNSSimpleRecord[]): IPowerDNSS
             type: record.type,
             ttl: record.ttl,
             content: !isNil(record.content) ? isArray(record.content) ? record.content : [record.content] : [],
-            comment: !isNil(record.comment) ? isArray(record.comment) ? record.comment : [record.comment] : [],
+            // comment: !isNil(record.comment) ? isArray(record.comment) ? record.comment : [record.comment] : [],
         });
     }
     return recordList.map(record => {
         record.content = Array.from(new Set(record.content));
-        record.comment = record.comment.slice(0, record.content.length);
+        // record.comment = record.comment.slice(0, record.content.length);
         return record;
     });
 }

@@ -109,7 +109,8 @@ export interface IPowerDNSZoneRRSet {
     records?: IPowerDNSZoneRRSetRecord[];
 
     /** List of Comment. Must be empty when changetype is set to DELETE. An empty list results in deletion of all comments. modified_at is optional and defaults to the current server time. */
-    comments?: IPowerDNSZoneRRSetComment[];
+    // Because lmdb does not support comments, this is disabled
+    // comments?: IPowerDNSZoneRRSetComment[];
 
 }
 
@@ -123,18 +124,19 @@ export interface IPowerDNSZoneRRSetRecord{
 
 }
 
-export interface IPowerDNSZoneRRSetComment {
+// Because lmdb does not support comments, this is disabled
+// export interface IPowerDNSZoneRRSetComment {
 
-    /** The actual comment */
-    content: string;
+//     /** The actual comment */
+//     content: string;
 
-    /** Name of an account that added the comment */
-    account?: string;
+//     /** Name of an account that added the comment */
+//     account?: string;
 
-    /**
-     * Timestamp of the last change to the comment
-     * @readonly
-     */
-    modified_at?: number;
+//     /**
+//      * Timestamp of the last change to the comment
+//      * @readonly
+//      */
+//     modified_at?: number;
 
-}
+// }

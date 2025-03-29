@@ -255,10 +255,10 @@ export class PowerDNSAdvancedClient {
             records = (records || []).filter(r => r.type).map(record => {
                 record.name = appendAbsoluteDomainName(zoneId, record.name);
                 record.ttl = record.ttl || 3600;
-                record.comments = (record.comments).filter(c => !!c.content).map(c => {
-                    c.account = c.account || '';
-                    return c;
-                })
+                // record.comments = (record.comments).filter(c => !!c.content).map(c => {
+                //     c.account = c.account || '';
+                //     return c;
+                // })
                 return record;
             });
 

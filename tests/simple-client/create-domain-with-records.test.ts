@@ -16,7 +16,6 @@ describe(`Creates a new domain with name "${domainName}" with "@" and "www" reco
         await SIMPLE_CLIENT.addRecord(domainName, {
             type: 'A',
             content: '127.0.0.1',
-            comment: 'Entry point'
         });
     });
 
@@ -26,7 +25,6 @@ describe(`Creates a new domain with name "${domainName}" with "@" and "www" reco
             type: 'A',
             name: 'www',
             content: '127.0.0.1',
-            comment: 'www-Subdomain'
         });
     });
 

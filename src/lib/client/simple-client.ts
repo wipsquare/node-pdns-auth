@@ -140,7 +140,7 @@ export class PowerDNSSimpleClient {
                     type: record.type,
                     ttl: record.ttl,
                     content: (record.records || []).map(r => r.content),
-                    comments: (record.comments || []).map(r => r.content),
+                    // comments: (record.comments || []).map(r => r.content),
                 }))))
                 .catch(reject);
         });
@@ -191,7 +191,7 @@ export class PowerDNSSimpleClient {
                                 name: record.name,
                                 ttl: record.ttl,
                                 content: (record.records || []).map(r => r.content),
-                                comment: (record.comments || []).map(r => r.content)
+                                // comment: (record.comments || []).map(r => r.content)
                             });
                         }
                     }
@@ -254,7 +254,7 @@ export class PowerDNSSimpleClient {
                     // append content if dnsRecord is not null
                     if(dnsRecord){
                         if(record.content) dnsRecord.content = [ ...(dnsRecord.content || []), ...(isArray(record.content) ? record.content : [record.content]) ];
-                        if(record.comment) dnsRecord.comment = [ ...(dnsRecord.comment || []), ...(isArray(record.comment) ? record.comment : [record.comment]) ];
+                        // if(record.comment) dnsRecord.comment = [ ...(dnsRecord.comment || []), ...(isArray(record.comment) ? record.comment : [record.comment]) ];
                         if(record.ttl) dnsRecord.ttl = record.ttl;
                         if(!findSimpleRecord(recordList, dnsRecord.type, dnsRecord.name)) recordList.push(dnsRecord);
                     }
@@ -265,7 +265,7 @@ export class PowerDNSSimpleClient {
                         name: record.name,
                         ttl: record.ttl,
                         content: !isNil(record.content) ? isArray(record.content) ? record.content : [record.content] : [],
-                        comment: !isNil(record.comment) ? isArray(record.comment) ? record.comment : [record.comment] : [],
+                        // comment: !isNil(record.comment) ? isArray(record.comment) ? record.comment : [record.comment] : [],
                     });
 
                 }
@@ -324,7 +324,7 @@ export class PowerDNSSimpleClient {
                     name: record.name,
                     ttl: record.ttl,
                     content: !isNil(record.content) ? isArray(record.content) ? record.content : [record.content] : [],
-                    comment: !isNil(record.comment) ? isArray(record.comment) ? record.comment : [record.comment] : [],
+                    // comment: !isNil(record.comment) ? isArray(record.comment) ? record.comment : [record.comment] : [],
                 }));
 
                 // update records
@@ -334,7 +334,7 @@ export class PowerDNSSimpleClient {
                     ttl: record.ttl,
                     changetype: 'REPLACE',
                     records: record.content.map(r => ({ content: r, disabled: false })),
-                    comments: record.comment.map(r => ({ content: r })),
+                    // comments: record.comment.map(r => ({ content: r })),
                 })));
 
                 // done

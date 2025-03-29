@@ -1,6 +1,6 @@
 # PowerDNS Client
 
-## A NodeJS client to communicate with the PowerDNS API.
+## A NodeJS client to communicate with the PowerDNS Authoritative Nameserver REST API.
 
 [![npm](https://ico.y.gy/npm/dm/@marxlnfcs/powerdns?style=flat-square&logo=npm)](https://www.npmjs.com/package/@marxlnfcs/powerdns)
 [![NPM](https://ico.y.gy/npm/l/@marxlnfcs/powerdns?style=flat-square&color=brightgreen)](https://www.npmjs.com/package/@marxlnfcs/powerdns)
@@ -9,8 +9,14 @@
         
 ## Installation
 ```
-npm i @marxlnfcs/powerdns
+npm i @wipsquare/powerdns
 ```
+
+## Important note
+My focus is towards the instances with LBDM backed. Some limitations might appear because of that, for example:
+
+Not supported:
+- RRset comments
 
 ## Usage
 ```
