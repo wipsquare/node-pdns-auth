@@ -14,7 +14,7 @@ jobs:
         # env:
         #   PDNS_AUTH_API_KEY: "apikey"
         volumes:
-          - ${{ github.workspace }}/pdns.conf:/etc/powerdns/pdns.conf
+          - ${{ github.workspace }}/tests/pdns.conf:/etc/powerdns/pdns.conf
         options: >-
           --health-cmd "pdnsutil list-all-zones || exit 1"
           --health-interval 10s
