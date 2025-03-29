@@ -1,0 +1,18 @@
+name: Basic workflow
+on: 
+  push:
+
+jobs:
+  test:
+    name: "Jest test"
+    runs-on: 
+      - ubuntu-latest
+    container: 
+      image: node:22
+      env:
+        NODE_ENV: development
+    steps:
+      - name: "Install deps"
+        run: npm i
+      - name: "Run tests"
+        run: npm run test
