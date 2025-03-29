@@ -13,6 +13,11 @@ on:
           - main
           - beta
           - alpha
+      skip_tests:
+        description: 'Skip running tests'
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   release:
@@ -23,6 +28,25 @@ jobs:
       issues: write
       pull-requests: write
       id-token: write
+    
+    services:
+      pdns-auth:
+        image: powerdns/pdns-auth-49:latest
+        ports:
+          - 8081:8081
+        env:
+          PDNS_AUTH_API_KEY: "apikey"
+        options: >-
+          --health-cmd "pdnsutil list-all-zones || exit 1"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    
+    container: 
+      image: node:22
+      env:
+        NODE_ENV: development
+        PDNS_HOST: pdns-auth
     
     steps:
       - name: Checkout
@@ -40,7 +64,11 @@ jobs:
         run: npm ci
       
       - name: Run tests
+        if: ${{ !inputs.skip_tests }}
         run: npm test
+        
+      - name: Build package
+        run: npm run build
       
       - name: Install Semantic Release plugins
         run: npm install -g semantic-release @semantic-release/changelog @semantic-release/git
