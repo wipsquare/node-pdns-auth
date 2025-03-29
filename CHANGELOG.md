@@ -1,3 +1,10 @@
+# [1.0.0-beta.2](https://github.com/wipsquare/node-pdns-auth/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2025-03-29)
+
+
+### Bug Fixes
+
+* test release workflow ([34d0517](https://github.com/wipsquare/node-pdns-auth/commit/34d0517ab0580194e2f28e4e1ad93074372d88da))
+
 # 1.0.0-beta.1 (2025-03-29)
 
 
