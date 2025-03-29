@@ -13,6 +13,8 @@ jobs:
           - 8081:8081
         env:
           PDNS_AUTH_API_KEY: "apikey"
+        volumes:
+          - ./pdns.conf:/etc/powerdns/pdns.conf
     container: 
       image: node:22
       env:
