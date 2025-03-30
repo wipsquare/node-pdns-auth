@@ -3,9 +3,8 @@
 ## A NodeJS client to communicate with the PowerDNS Authoritative Nameserver REST API.
         
 ## Installation
-```
-npm i @wipsquare/powerdns
-```
+- **Stable version**: `npm install @wipsquare/node-pdns-auth`
+- **Beta version**: `npm install @wipsquare/node-pdns-auth@beta`
 
 ## Important notes
 This is still in tests!
