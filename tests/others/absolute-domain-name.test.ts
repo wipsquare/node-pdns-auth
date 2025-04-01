@@ -1,4 +1,5 @@
 import {appendAbsoluteDomainName, toAbsoluteDomainName} from "../../src/lib/internals/utilities";
+import { describe, expect, test } from '@jest/globals'
 
 describe('Checks if domainName gets converted correctly', () => {
     test('Checks if non absolute name gets converted', () => {

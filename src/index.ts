@@ -23,3 +23,4 @@ export * from './lib/interfaces/tsig-key.interface';
 export * from './lib/interfaces/zone.interface';
 export * from './lib/interfaces/simple/simple-setup.interface';
 export * from './lib/interfaces/simple/simple-record.interface';
+export { appendAbsoluteDomainName, toAbsoluteDomainName } from './lib/internals/utilities'
