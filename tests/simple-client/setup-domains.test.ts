@@ -1,4 +1,5 @@
 import {SIMPLE_CLIENT} from "../variables";
+import { describe, afterAll, test } from '@jest/globals'
 
 /** Variables */
 const domainName = 'example.com';
