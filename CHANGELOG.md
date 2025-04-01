@@ -1,3 +1,10 @@
+# [1.0.0-beta.3](https://github.com/wipsquare/node-pdns-auth/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2025-04-01)
+
+
+### Features
+
+* export utilities ([96d2ed6](https://github.com/wipsquare/node-pdns-auth/commit/96d2ed658145f17c22ab9d3dcb1d50e24b0a2cd1))
+
 # [1.0.0-beta.2](https://github.com/wipsquare/node-pdns-auth/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2025-03-29)
 
 
